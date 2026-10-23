@@ -8,7 +8,7 @@ class DogBreedTests(unittest.TestCase):
     def setUp(self):
         PetBreed.next_pet_id = 1
 
-    def create_dog(self):
+    def create_test_dog(self):
         return DogBreed(
             "Border Collie",
             "medium",
@@ -20,27 +20,23 @@ class DogBreedTests(unittest.TestCase):
             "12-15 years",
             "running" 
         )
-
-    def test_dog_inherits_from_petbreed(self):
-        dog = self.create_dog()
-        self.assertIsInstance(dog,PetBreed)
         
     def test_dog_is_instance_of_petbreed(self):
-        dog = self.create_dog()
+        dog = self.create_test_dog()
         self.assertIsInstance(dog, PetBreed)
         
     def test_dog_id(self):
-        dog = self.create_dog()
+        dog = self.create_test_dog()
         self.assertEqual(dog.id, 'PET-0001')
         
     def test_dog_ids_increment(self):
-        dog = self.create_dog()
-        dog2 = self.create_dog()
+        dog = self.create_test_dog()
+        dog2 = self.create_test_dog()
         self.assertEqual(dog.id, 'PET-0001')
         self.assertEqual(dog2.id, 'PET-0002')
         
     def test_dog_attributes(self):
-        dog = self.create_dog()
+        dog = self.create_test_dog()
         self.assertEqual(dog.type, 'dog')
         self.assertEqual(dog.name, 'Border Collie')
         self.assertEqual(dog.size, 'medium')
