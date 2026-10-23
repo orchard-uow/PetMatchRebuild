@@ -94,3 +94,7 @@ class PetBreedTests(unittest.TestCase):
     def test_pet_breed_is_abstract(self):
         with self.assertRaises(TypeError):
             PetBreed('dog', 'Border Collie', 'medium', '5', '18.3 kg')
+
+
+if __name__ == "__main__":
+    unittest.main()

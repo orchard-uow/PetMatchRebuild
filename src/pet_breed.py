@@ -5,7 +5,9 @@ class PetBreed(ABC):
 
     next_pet_id = 1
 
-    def __init__(self, type, name, size, age, weight):
+    def __init__(self, type, name, size, age, weight, 
+                 coat="", energy="", temperament="",
+                   lifespan="", activities=""):
 
         ## validate attributes ##
         # validate name
