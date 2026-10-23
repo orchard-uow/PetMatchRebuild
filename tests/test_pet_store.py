@@ -76,3 +76,13 @@ class PetStoreTests(unittest.TestCase):
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0].name, "Gentle Orchard")
         self.assertIs(result[0], updated_dog)
+
+    def test_edit_breed_on_pet_not_found(self):
+        dog = self.create_test_dog()
+        self.store.add_pet_breed(dog)
+        updated_dog = self.create_test_dog()
+        updated_dog.id = "PET-0006"
+        result = self.store.edit_pet_breed(updated_dog.id, updated_dog)
+        self.assertFalse(result)
+        self.assertEqual(len(self.store.pet_store), 1)
+        self.assertIs(self.store.pet_store[0], dog)
