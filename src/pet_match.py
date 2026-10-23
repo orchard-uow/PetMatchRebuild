@@ -14,3 +14,6 @@ class PetMatch:
     
     def delete_pet_breed(self, id):
         self.petstore.delete_pet_breed(id)
+        
+    def edit_pet_breed(self, id, pet):
+        return self.petstore.edit_pet_breed(id, pet)

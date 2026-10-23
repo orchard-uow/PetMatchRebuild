@@ -21,4 +21,11 @@ class PetStore:
         for pet in self.pet_store:
             if pet.id == id:
                 self.pet_store.remove(pet)
+                
+    def edit_pet_breed(self, id, pet):
+        for i in range(len(self.pet_store)):
+            if self.pet_store[i].id == id:
+                self.pet_store[i] = pet
+                return True
+        return False
         

@@ -42,3 +42,16 @@ class PetMatchTests(unittest.TestCase):
         result = self.petmatch.search_pet_breed(id = dog.id)
         self.assertEqual(result, [])
         
+    def test_edit_pet_breed_via_petmatch(self):
+        dog = self.create_test_dog()
+        self.petmatch.add_pet_breed(dog)
+        updated_dog = self.create_test_dog()
+        updated_dog.id = dog.id
+        updated_dog.name = "Gentle Orchard"
+        self.petmatch.edit_pet_breed(dog.id, updated_dog)
+        result = self.petmatch.search_pet_breed(id=dog.id)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(self.petmatch.petstore.pet_store[0].name, "Gentle Orchard")
+        self.assertIs(result[0], updated_dog)
+        
+        
