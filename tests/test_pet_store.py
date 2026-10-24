@@ -71,8 +71,6 @@ class PetStoreTests(unittest.TestCase):
         updated_dog.name = "Gentle Orchard"
         self.store.edit_pet_breed(dog.id, updated_dog)
         result = self.store.search_pet_breed(id=dog.id)
-        # self.assertIn(dog, result)
-        # self.assertListEqual(result, [dog])
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0].name, "Gentle Orchard")
         self.assertIs(result[0], updated_dog)
