@@ -76,13 +76,49 @@ class Menu():
 
     def search_pet_breed(self, id="", name=""):
         if id:
-            return self.petmatch.search_pet_breed(id=id)
+            result = self.petmatch.search_pet_breed(id=id)
+        elif name:
+            result = self.petmatch.search_pet_breed(name=name)
+        else:
+            print("Enter a pet id or breed name.")
+            return
 
-        if name:
-            return self.petmatch.search_pet_breed(name=name)
+        if result:
+            for pet in result:
+                self.display_pet_breed_details(pet)
+        else:
+            print("Pet breed not found.")
+
+        return result
 
     def delete_pet_breed(self, petId):
-        self.petmatch.delete_pet_breed(petId)
+        result = self.petmatch.delete_pet_breed(petId)
+        if result == True:
+            print(f"Pet breed with {petId} has been deleted from your pet store")
+
 
     def edit_pet_breed(self, id, updatedPet):
         self.petmatch.edit_pet_breed(id, updatedPet)
+
+    def show_all_pet_breeds(self):
+        self.petmatch.show_all_pet_breeds()
+
+    def show_a_specific_pet_breed(self, id="", name=""):
+        self.petmatch.show_a_specific_pet_breed(id=id, name=name)
+
+    def display_pet_breed_details(self, pet):
+        print()
+        print(f"{'Id: ':<5}{pet.id}")
+        print(f"{'Type: ':<5}{pet.type}")
+        print(f"{'Name: ':<5}{pet.name}")
+        print(f"{'Size: ':<5}{pet.size}")
+        print(f"{'Age: ':<5}{pet.age} yrs")
+        print(f"{'Weight: ':<5}{pet.weight} kg")
+        print(f"{'Coat: ':<5}{pet.coat}")
+        print(f"{'Energy: ':<5}{pet.energy}")
+        print(f"{'Temperament: ':<5}{pet.temperament}")
+        print(f"{'Lifespan: ':<5}{pet.lifespan}")
+        if pet.type == 'dog':
+            print(f"{'Activities: ':<5}{pet.activities}")
+        else:
+            print(f"{'Colours: ':<5}{pet.colours}")

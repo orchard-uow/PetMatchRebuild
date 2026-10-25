@@ -66,6 +66,26 @@ class MenuTests(unittest.TestCase):
         self.assertEqual(len(result),1)
         self.assertIs(result[0], dog)
 
+    def test_menu_search_pet_breed_by_part_name_via_petmatch_returns_more_than_one_result(self):
+        dog = self.create_test_dog()
+        def get_test_breed():
+            return dog
+        self.menu.breed_input.get_pet_breed_values = get_test_breed
+        self.menu.add_pet_breed()
+
+
+        dog2 = self.create_test_dog()
+        def get_test_breed():
+            return dog2   
+        self.menu.breed_input.get_pet_breed_values = get_test_breed
+        self.menu.add_pet_breed()
+
+        result = self.menu.search_pet_breed(name="Collie")
+
+        self.assertEqual(len(result),2)
+        # self.assertIs(result[0], dog)
+        # print(result)
+
     def test_menu_delete_pet_breed_via_petmach(self):
         dog = self.create_test_dog()
         def get_test_breed():
@@ -91,5 +111,22 @@ class MenuTests(unittest.TestCase):
         self.assertEqual(result[0].name, "Gentle Orchard")
         self.assertIs(result[0], updated_dog)
 
+    def test_menu_show_all_pet_breeds(self):
+        dog = self.create_test_dog()
+        def get_test_breed():
+            return dog
+        self.menu.breed_input.get_pet_breed_values = get_test_breed
+        self.menu.add_pet_breed()
+        self.menu.show_all_pet_breeds()
+        self.assertEqual(len(self.petmatch.petstore.pet_store),1)
+
+    def test_menu_show_a_specific_pet_breed_by_id(self):
+        dog = self.create_test_dog()
+        def get_test_breed():
+            return dog
+        self.menu.breed_input.get_pet_breed_values = get_test_breed
+        self.menu.add_pet_breed()  
+        self.menu.show_a_specific_pet_breed(id=dog.id)
+    
 if __name__ == "__main__":
     unittest.main()
