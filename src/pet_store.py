@@ -44,5 +44,5 @@ class PetStore:
 
             if name:
                 if pet.name == name:
-                    return name
+                    return pet
         

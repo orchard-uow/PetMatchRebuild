@@ -7,7 +7,7 @@ class PetMatch:
         
         
     def add_pet_breed(self, pet):
-        self.petstore.add_pet_breed(pet)
+        return self.petstore.add_pet_breed(pet)
         
     def search_pet_breed(self, id="", name=""):
         return self.petstore.search_pet_breed(id=id, name=name)

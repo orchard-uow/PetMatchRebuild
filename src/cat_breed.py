@@ -13,14 +13,16 @@ class CatBreed(PetBreed):
         energy="",
         temperament="",
         lifespan="",
-        colours=""
+        colours="",
+        breed="",
+        pet_id=None
     ):
-        super().__init__("cat", name, size, age, weight)
-        self.coat = coat
-        self.energy = energy
-        self.temperament = temperament
-        self.lifespan = lifespan
-        self.colours = colours
+        super().__init__(type="cat",name=name, size=size, age=age, weight=weight, coat=coat, energy=energy, temperament=temperament, lifespan=lifespan, colours=colours, breed=breed, pet_id=pet_id)
+
+        
 
     def display_breed_info(self):
-        pass
+        print(f"ID: {self.id}")
+        print(f"Breed: {self.breed}")
+        print(f"Name: {self.name}")
+        print(f"Colours: {self.colours}")
