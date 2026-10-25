@@ -59,7 +59,7 @@ class Menu():
                         # self.edit_pet_breed()
                     case 6:
                         print("6. Delete Pet Breed")
-                        # self.delete_pet_breed()
+                        self.delete_pet_breed()
                     case 7:
                         print("Thanks for visiting PetMatch")
                         # rewrite PetBreed file
@@ -80,3 +80,9 @@ class Menu():
 
         if name:
             return self.petmatch.search_pet_breed(name=name)
+
+    def delete_pet_breed(self, petId):
+        self.petmatch.delete_pet_breed(petId)
+
+    def edit_pet_breed(self, id, updatedPet):
+        self.petmatch.edit_pet_breed(id, updatedPet)

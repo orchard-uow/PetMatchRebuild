@@ -66,6 +66,30 @@ class MenuTests(unittest.TestCase):
         self.assertEqual(len(result),1)
         self.assertIs(result[0], dog)
 
+    def test_menu_delete_pet_breed_via_petmach(self):
+        dog = self.create_test_dog()
+        def get_test_breed():
+            return dog
+        self.menu.breed_input.get_pet_breed_values = get_test_breed
+        self.menu.add_pet_breed()
+        self.assertEqual(len(self.petmatch.petstore.pet_store),1)
+        self.menu.delete_pet_breed(dog.id)
+        self.assertEqual(len(self.petmatch.petstore.pet_store),0)
+
+    def test_menu_edit_pet_breed_via_petmatch(self):
+        dog = self.create_test_dog()
+        def get_test_breed():
+            return dog
+        self.menu.breed_input.get_pet_breed_values = get_test_breed
+        self.menu.add_pet_breed()
+        updated_dog = self.create_test_dog()
+        updated_dog.id = dog.id
+        updated_dog.name = "Gentle Orchard"
+        self.menu.edit_pet_breed(dog.id, updated_dog)
+        result = self.menu.search_pet_breed(id=dog.id)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].name, "Gentle Orchard")
+        self.assertIs(result[0], updated_dog)
 
 if __name__ == "__main__":
     unittest.main()
