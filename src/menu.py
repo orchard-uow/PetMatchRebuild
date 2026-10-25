@@ -1,3 +1,4 @@
+
 from src.pet_breed_input import PetBreedInput
 
 class Menu():
@@ -71,4 +72,11 @@ class Menu():
 
         # append pet to self.petmatch.pet_store
         self.petmatch.add_pet_breed(pet)
-        print(f"\n{pet.name} {pet.type} added to pet store")
+        # print(f"\n{pet.name} {pet.type} added to pet store")
+
+    def search_pet_breed(self, id="", name=""):
+        if id:
+            return self.petmatch.search_pet_breed(id=id)
+
+        if name:
+            return self.petmatch.search_pet_breed(name=name)

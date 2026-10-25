@@ -1,3 +1,5 @@
+import re
+
 class PetStore:
 
     def __init__(self):
@@ -13,7 +15,7 @@ class PetStore:
                 if pet.id == id:
                     result.append(pet)
             if name:
-                if pet.name == name:
+                if re.search(re.escape(name), pet.name, re.IGNORECASE):
                     result.append(pet)
         return result
     
