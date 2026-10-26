@@ -8,14 +8,14 @@ class PetStore:
     def add_pet_breed(self, petbreed):
         self.pet_store.append(petbreed)
 
-    def search_pet_breed(self, id="", name=""):
+    def search_pet_breed(self, id="", breed=""):
         result = []
         for pet in self.pet_store:
             if id:
                 if pet.id == id:
                     result.append(pet)
-            if name:
-                if re.search(re.escape(name), pet.name, re.IGNORECASE):
+            if breed:
+                if re.search(re.escape(breed), pet.breed, re.IGNORECASE):
                     result.append(pet)
         return result
     
@@ -36,13 +36,10 @@ class PetStore:
     def show_all_pet_breeds(self):
         return self.pet_store
 
-    def show_a_specific_pet_breed(self, id="", name=""):
+    def get_pet_breed(self, id=""):
         for pet in self.pet_store:
             if id:
                 if pet.id == id:
                     return pet
-
-            if name:
-                if pet.name == name:
-                    return pet
+        return False
         

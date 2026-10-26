@@ -1,0 +1,9 @@
+
+PET-0001, Dog, Alaskan Malamute, Giant, 38-56 Medium, energy: High, temperament: Alaskan Malamutes are known for their friendly and affectionate temperament., lifespan: 10-14 years, activities: Agility, Dog Sledding, Obedience, Rally, Therapy
+PET-0002, Dog, Australian Terrier, Small, 5-7 Long, energy: Medium, temperament: Australian Terriers are spirited, affectionate, and intelligent., lifespan: 12-15 years, activities: Conformation, Agility, Obedience
+PET-0003, Dog, Border Collie, Medium, 14-20 Medium, energy: High, temperament: Border Collies are known for their friendly and affectionate nature., lifespan: 12-15 years, activities: Agility, Conformation, Herding, Obedience, Tracking
+PET-0004, Dog, German Shepherd, Large, 40 , energy: , temperament: , lifespan: , activities: 
+PET-0005, Cat, Norwegian Forest Cat, Large, 6-10 Long, energy: Medium, temperament: Norwegian Forest Cats are known for their gentle and friendly temperament., lifespan: 12-16 years, colours: White, black, blue, red, cream and silver, plus various patterns and shadings.
+PET-0006, Cat, Ragdoll, Medium, 4-9 Long, energy: Low, temperament: Ragdolls are known for their docile and laid-back temperament., lifespan: 12-15 years, colours: Seal, blue, chocolate, lilac, red and cream, plus various patterns.
+PET-0007, Cat, Siamese, Medium, 3-7 Short, energy: High, temperament: Siamese cats are known for their sociable and playful temperament., lifespan: 12-20 years, colours: Seal point, chocolate point, blue point, lilac point
+PET-0008, Cat, Persian, Large, 4-8 , energy: , temperament: , lifespan: , colours: 

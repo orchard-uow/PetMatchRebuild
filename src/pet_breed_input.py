@@ -8,12 +8,12 @@ class PetBreedInput:
     def get_pet_breed_values(self):
 
         cat_attributes = [
-            'name', 'size', 'age', 'weight', 'coat',
+            'breed', 'name', 'size', 'age', 'weight', 'coat',
             'energy', 'temperament', 'lifespan', 'colours'
         ]
         
         dog_attributes = [
-            'name', 'size', 'age', 'weight', 'coat',
+            'breed', 'name', 'size', 'age', 'weight', 'coat',
             'energy', 'temperament', 'lifespan', 'activities'
         ]
 
@@ -79,10 +79,10 @@ class PetBreedInput:
 
                     if prop == 'weight':
                         breed_values[prop] = value + ' kg'
-                    # elif prop == 'age':
-                    #     breed_values[prop] = value 
                     elif prop == 'lifespan':
                         breed_values[prop] = value + ' yrs'
+                    # elif prop == 'age':
+                    #     breed_values[prop] = float(value)
                     else:
                         breed_values[prop] = value
                     break
@@ -91,4 +91,8 @@ class PetBreedInput:
                     print(e)
                     
         # ** unpack dict & pass each k:v pairs
-        return breed(**breed_values)
+        try:
+            return breed(**breed_values)
+        except ValueError as e:
+            print("Validation error:", e)
+            return self.get_pet_breed_values()

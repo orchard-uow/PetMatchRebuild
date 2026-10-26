@@ -47,16 +47,16 @@ class Menu():
                         self.add_pet_breed()
                     case 2:
                         print("2. Search Pet Breeds")
-                        self.search_pet_breeds()
+                        self.search_pet_breed()
                     case 3:
                         print("3. Show all Pet Breeds")
-                        # self.show_all_pet_breeds()
+                        self.show_all_pet_breeds()
                     case 4:
                         print("4. Show a Pet Breed")
-                        # self.get_pet_breed()
+                        self.get_pet_breed()
                     case 5:
                         print("5. Edit Pet Breed")
-                        # self.edit_pet_breed()
+                        self.edit_pet_breed()
                     case 6:
                         print("6. Delete Pet Breed")
                         self.delete_pet_breed()
@@ -72,15 +72,18 @@ class Menu():
 
         # append pet to self.petmatch.pet_store
         self.petmatch.add_pet_breed(pet)
-        # print(f"\n{pet.name} {pet.type} added to pet store")
+        print(f"\n{pet.breed} {pet.type} added to pet store")
 
-    def search_pet_breed(self, id="", name=""):
+    def search_pet_breed(self, id="", breed=""):
+        if not id:
+            id = input("Enter pet ID or press enter to search by breed: ").strip()
+        if not id and not breed:
+            breed = input("Enter pet breed or press enter to return to menu: ").strip()
         if id:
             result = self.petmatch.search_pet_breed(id=id)
-        elif name:
-            result = self.petmatch.search_pet_breed(name=name)
+        elif breed:
+            result = self.petmatch.search_pet_breed(breed=breed)
         else:
-            print("Enter a pet id or breed name.")
             return
 
         if result:
@@ -91,25 +94,70 @@ class Menu():
 
         return result
 
-    def delete_pet_breed(self, petId):
-        result = self.petmatch.delete_pet_breed(petId)
+    def delete_pet_breed(self, id=""):
+        if not id:
+            id = input("Enter pet ID: ").strip()
+        
+        if not id:
+            print("No pet id entered")
+
+        result = self.petmatch.delete_pet_breed(id)
+
         if result == True:
-            print(f"Pet breed with {petId} has been deleted from your pet store")
+            print(f"Pet breed with {id} has been deleted from your pet store")
+        else:
+            print(f"Pet {id} not found.")
 
+        return result
 
-    def edit_pet_breed(self, id, updatedPet):
+    def edit_pet_breed(self, id="", updatedPet=None):
+        if not id:
+            id = input("Enter pet ID: ").strip()
+
+        # search for pet ID
+        result = self.petmatch.search_pet_breed(id=id)
+
+        if not result:
+            print("Pet breed not found")
+            return False
+
+        # display rearch result
+        pet = result[0]
+        self.display_pet_breed_details(pet)
+
+        # get updated pet data
+        updatedPet = self.breed_input.get_pet_breed_values()
+
+        # keep id of pet
+        updatedPet.id = pet.id
+
+        # save changes via petmatch
         self.petmatch.edit_pet_breed(id, updatedPet)
 
-    def show_all_pet_breeds(self):
-        self.petmatch.show_all_pet_breeds()
+        # display changes made
+        self.get_pet_breed(updatedPet.id)
 
-    def show_a_specific_pet_breed(self, id="", name=""):
-        self.petmatch.show_a_specific_pet_breed(id=id, name=name)
+    def show_all_pet_breeds(self):
+        result = self.petmatch.show_all_pet_breeds()
+        for pet in result:
+            self.display_pet_breed_details(pet)
+
+    def get_pet_breed(self, id=""):
+        if not id:
+            id = input("Enter pet ID: ")
+        if id:
+            result = self.petmatch.get_pet_breed(id=id)
+        if result == False:
+            print("There were no matches for your search")
+            return
+        else:
+            self.display_pet_breed_details(result)
 
     def display_pet_breed_details(self, pet):
         print()
         print(f"{'Id: ':<5}{pet.id}")
         print(f"{'Type: ':<5}{pet.type}")
+        print(f"{'Breed: ':<5}{pet.breed}")
         print(f"{'Name: ':<5}{pet.name}")
         print(f"{'Size: ':<5}{pet.size}")
         print(f"{'Age: ':<5}{pet.age} yrs")
@@ -118,7 +166,8 @@ class Menu():
         print(f"{'Energy: ':<5}{pet.energy}")
         print(f"{'Temperament: ':<5}{pet.temperament}")
         print(f"{'Lifespan: ':<5}{pet.lifespan}")
+        print(f"{'Colours: ':<5}{pet.colours}")
         if pet.type == 'dog':
             print(f"{'Activities: ':<5}{pet.activities}")
-        else:
-            print(f"{'Colours: ':<5}{pet.colours}")
+        
+            

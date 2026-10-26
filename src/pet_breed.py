@@ -21,11 +21,11 @@ class PetBreed(ABC):
             raise ValueError("Type must be cat or dog")
         
         # validate size
-        if size not in PetBreed.sizes:
+        if size not in self.sizes:
             raise ValueError("Invaild size")
         
         # validate coats
-        if coat and coat not in PetBreed.coats:
+        if coat and coat not in self.coats:
             raise ValueError("Invaild coat")
         
         # validate name

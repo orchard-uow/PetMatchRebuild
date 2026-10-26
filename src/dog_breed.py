@@ -3,6 +3,9 @@ from src.pet_breed import PetBreed
 
 class DogBreed(PetBreed):
 
+    sizes = PetBreed.sizes + ['giant']
+    coats = PetBreed.coats + ['double', 'wiry', 'smooth', 'rough']
+
     def __init__(
         self,
         name,
