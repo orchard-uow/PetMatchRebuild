@@ -1,0 +1,13 @@
+PetMatch Breed Matching Report
+==============================
+Pet type: Dog
+Selected preferences:
+Size: medium
+Coat: medium
+
+Matching breeds:
+
+Breed: BorderCollie
+Type: dog
+Size: medium
+Coat: medium

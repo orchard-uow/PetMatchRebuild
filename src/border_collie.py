@@ -2,6 +2,12 @@ from src.dog_breed import DogBreed
 
 class BorderCollie(DogBreed):
 
+    default_prefs = {
+        "type": "dog",
+        "size": "medium",
+        "coat": "medium"
+    }
+
     def __init__(self):
         super().__init__(
             name="Border Collie",

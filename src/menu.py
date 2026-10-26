@@ -22,7 +22,8 @@ class Menu():
         print("6. Delete Pet Breed")
         print("7. Save all pet breeds to a JSON file")
         print("8. Generate Pet Statistics Charts")
-        print("9. Quit")
+        print("9. Generate Pet Match Report")
+        print("10. Quit")
         print()
 
     def petmatch_menu_interface(self):
@@ -35,11 +36,11 @@ class Menu():
             try:
                 p_m_option = int(input('Enter an option number: '))
                 
-                if p_m_option < 1 or p_m_option > 9:
-                    raise ValueError('Option must be between 1 and 9')
+                if p_m_option < 1 or p_m_option > 10:
+                    raise ValueError('Option must be between 1 and 10')
                 
             except ValueError as e:
-                if str(e) != 'Option must be between 1 and 9':
+                if str(e) != 'Option must be between 1 and 10':
                     print("Please enter a number.")
                 else:
                     print(e)
@@ -70,6 +71,9 @@ class Menu():
                         print("8. Generate Pet Statistics Charts")
                         self.generate_pet_statistics()
                     case 9:
+                        print("9. Find Pet Breed Matches")
+                        self.generate_pet_match_report()
+                    case 10:
                         print("Thanks for visiting PetMatch")
                         # rewrite PetBreed file
                         # self.create_pet_breed_file()
@@ -184,3 +188,6 @@ class Menu():
         
     def generate_pet_statistics(self):
         self.petmatch.generate_pet_statistics()   
+
+    def generate_pet_match_report(self):
+        self.petmatch.find_pet_matches()

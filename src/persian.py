@@ -2,6 +2,12 @@ from src.cat_breed import CatBreed
 
 class Persian(CatBreed):
 
+    default_prefs = {
+            "type": "cat",
+            "size": "medium",
+            "coat": "long"
+        }
+
     def __init__(self):
         super().__init__(
             name="Persian",
