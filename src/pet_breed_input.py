@@ -1,6 +1,9 @@
 from src.cat_breed import CatBreed
 from src.dog_breed import DogBreed
 
+from src.persian import Persian
+from src.border_collie import BorderCollie
+
 from src.exceptions import InvalidBreedError, InvalidSizeError, InvalidCoatError
 
 class PetBreedInput:
@@ -18,6 +21,8 @@ class PetBreedInput:
         ]
 
         breed_values = {}
+        breed = None
+        concrete_breed = False
 
         while True:
             pet_type = input('Enter pet type (Cat, Dog): ')
@@ -27,17 +32,31 @@ class PetBreedInput:
                     raise InvalidBreedError('Please enter Cat or Dog.')
 
                 if pet_type.lower() == 'cat':
-                    breed = CatBreed
-                    attributes = cat_attributes
+                    breed_name = input("Enter breed name (Eg: Persian or press enter): ")
+                    if breed_name.lower() == 'persian':
+                        breed = Persian
+                        concrete_breed = True
+                    else:
+                        breed = CatBreed
+                        attributes = cat_attributes
                 else:
-                    breed = DogBreed
-                    attributes = dog_attributes
+                    breed_name = input("Enter breed name (Eg: BorderCollie or press enter): ")
+                    if breed_name.lower() == 'bordercollie':
+                        breed = BorderCollie
+                        concrete_breed = True
+                    else:
+                        breed = DogBreed
+                        attributes = dog_attributes
 
                 # breed_values['type'] = pet_type.capitalize()
                 break
 
             except InvalidBreedError as e:
                 print(e)
+
+        # return concrete breeds immediately
+        if concrete_breed:
+            return breed()
 
         # Get values to set attributes
         for prop in attributes:
@@ -93,6 +112,7 @@ class PetBreedInput:
         # ** unpack dict & pass each k:v pairs
         try:
             return breed(**breed_values)
+            
         except ValueError as e:
             print("Validation error:", e)
             return self.get_pet_breed_values()
