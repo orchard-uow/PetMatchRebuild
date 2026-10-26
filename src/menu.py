@@ -1,5 +1,6 @@
 
 from src.pet_breed_input import PetBreedInput
+from src.save_pets_to_json import save_pets_to_json
 
 class Menu():
     
@@ -19,7 +20,8 @@ class Menu():
         print("4. Show a Pet Breed")
         print("5. Edit Pet Breed")
         print("6. Delete Pet Breed")
-        print("7. Quit")
+        print("7. Save all pet breeds to a JSON file")
+        print("8. Quit")
         print()
 
     def petmatch_menu_interface(self):
@@ -32,11 +34,11 @@ class Menu():
             try:
                 p_m_option = int(input('Enter an option number: '))
                 
-                if p_m_option < 1 or p_m_option > 7:
-                    raise ValueError('Option must be between 1 and 7')
+                if p_m_option < 1 or p_m_option > 8:
+                    raise ValueError('Option must be between 1 and 8')
                 
             except ValueError as e:
-                if str(e) != 'Option must be between 1 and 7':
+                if str(e) != 'Option must be between 1 and 8':
                     print("Please enter a number.")
                 else:
                     print(e)
@@ -61,6 +63,9 @@ class Menu():
                         print("6. Delete Pet Breed")
                         self.delete_pet_breed()
                     case 7:
+                        print("7. Save all Pet Breeds to a JSON file")
+                        self.save_pet_breeds()
+                    case 8:
                         print("Thanks for visiting PetMatch")
                         # rewrite PetBreed file
                         # self.create_pet_breed_file()
@@ -169,5 +174,8 @@ class Menu():
         print(f"{'Colours: ':<5}{pet.colours}")
         if pet.type == 'dog':
             print(f"{'Activities: ':<5}{pet.activities}")
+
+    def save_pet_breeds(self):
+        save_pets_to_json(self.petmatch, "src/PetBreed.json")
         
             
