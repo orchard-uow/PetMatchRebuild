@@ -1,12 +1,12 @@
-dog,BorderCollie,PET-1001,Milo,4.5,Black/White,18.2
-dog,BorderCollie,PET-1002,Ruby,5.0,Red/White,21.3
-dog,BorderCollie,PET-1003,Scout,2.5,Blue Merle,16.7
-dog,AustralianKelpie,PET-1004,Max,3.0,Black/Tan,19.0
-dog,AustralianKelpie,PET-1005,Pepper,6.5,Red,17.4
-dog,AustralianKelpie,PET-1006,Ace,1.5,Chocolate,22.1
-cat,Bengal,PET-1007,Luna,3.5,Brown Spotted,4.8
-cat,Bengal,PET-1008,Leo,4.0,Silver Spotted,5.2
-cat,Bengal,PET-1009,Nala,2.0,Snow,4.4
-cat,DevonRex,PET-1010,Coco,2.5,Cream,3.9
-cat,DevonRex,PET-1011,Ziggy,5.5,Blue/Grey,4.3
-cat,DevonRex,PET-1012,Pixie,1.0,White,3.1
+dog,BorderCollie,PET-0001,Milo,4.5,Black/White,18.2
+dog,BorderCollie,PET-0002,Ruby,5.0,Red/White,21.3
+dog,BorderCollie,PET-0003,Scout,2.5,Blue Merle,16.7
+dog,AustralianKelpie,PET-0004,Max,3.0,Black/Tan,19.0
+dog,AustralianKelpie,PET-0005,Pepper,6.5,Red,17.4
+dog,AustralianKelpie,PET-0006,Ace,1.5,Chocolate,22.1
+cat,Bengal,PET-0007,Luna,3.5,Brown Spotted,4.8
+cat,Bengal,PET-0008,Leo,4.0,Silver Spotted,5.2
+cat,Bengal,PET-0009,Nala,2.0,Snow,4.4
+cat,DevonRex,PET-0010,Coco,2.5,Cream,3.9
+cat,DevonRex,PET-0011,Ziggy,5.5,Blue/Grey,4.3
+cat,DevonRex,PET-0012,Pixie,1.0,White,3.1

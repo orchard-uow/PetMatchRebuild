@@ -1,6 +1,7 @@
 import json
 from src.cat_breed import CatBreed
 from src.dog_breed import DogBreed
+from src.pet_breed import PetBreed
 
 def load_pets_from_text_file(petmatch, file):
 
@@ -58,5 +59,7 @@ def load_pets_from_text_file(petmatch, file):
 
             # add pet through PetMatch facade
             petmatch.add_pet_breed(pet)
+
+        PetBreed.next_pet_id = len(petmatch.show_all_pet_breeds()) + 1
 
         # print(pets_data)
