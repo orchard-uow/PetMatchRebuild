@@ -1,7 +1,5 @@
-
-
 from src.pet_store import PetStore
-
+from src.pet_statistics import show_statistics
 
 class PetMatch:
     def __init__(self):
@@ -26,4 +24,6 @@ class PetMatch:
     def get_pet_breed(self, id=""):
         return self.petstore.get_pet_breed(id=id)
 
-    
+    def generate_pet_statistics(self):
+        pets = self.show_all_pet_breeds()
+        show_statistics(pets)
